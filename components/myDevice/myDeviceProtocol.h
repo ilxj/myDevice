@@ -1,0 +1,6 @@
+#ifndef _MYDEVICEPROTOCOL_H_
+#define _MYDEVICEPROTOCOL_H_
+
+
+
+#endif // _MYDEVICEPROTOCOL_H_
