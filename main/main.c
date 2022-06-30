@@ -102,11 +102,14 @@ void app_main(void)
     esp_netif_t *sta_netif = esp_netif_create_default_wifi_sta();
     assert(sta_netif);
     dumpPartition();
-    wifiConnect("ssid-xxx","xxxxxxxx");
+    wifiConnect("your-ssid","your-pwd");
     esp_wifi_get_mac(ESP_IF_WIFI_STA,mac );
     sprintf( szMac,"%02X-%02X-%02X-%02X-%02X-%02X",mac[0],mac[1],mac[2],mac[3],mac[4],mac[5] );
-    myDevice( (const char *)__TIME__,(const char *)szMac,fotaHalStart,fotaFarmwareWrite,fotaHalComplete );
-    ESP_LOGI(  TAG,"fota init done!");
+
+    /*------------------就这一行--------------------------------------------*/
+    myDevice( (const char *)"1.3.0",(const char *)szMac,fotaHalStart,fotaFarmwareWrite,fotaHalComplete );
+
+    ESP_LOGI(  TAG,"init done!");
     while (true) {
         vTaskDelay(300 / portTICK_PERIOD_MS);
     }
